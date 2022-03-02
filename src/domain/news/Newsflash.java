@@ -1,8 +1,11 @@
 package domain.news;
 
+import domain.Observable;
+import domain.Observer;
+
 import java.time.LocalDateTime;
 
-public class Newsflash extends News {
+public class Newsflash extends News implements Observable {
 	private final LocalDateTime expiresAt;
 
 	public Newsflash(Source source, LocalDateTime datetime, LocalDateTime expiresAt, String content) {
@@ -22,5 +25,25 @@ public class Newsflash extends News {
 		else {
 			return null;
 		}
+	}
+
+	@Override
+	public void registerObserver(Observer o) {
+
+	}
+
+	@Override
+	public void unregisterObserver(Observer o) {
+
+	}
+
+	@Override
+	public void notifyObservers() {
+
+	}
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
 }

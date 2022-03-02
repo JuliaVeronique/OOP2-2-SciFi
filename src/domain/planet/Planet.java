@@ -3,12 +3,10 @@ package domain.planet;
 import java.util.HashSet;
 import java.util.Set;
 
-import domain.Body;
-import domain.Coordinate;
-import domain.Universe;
+import domain.*;
 import domain.star.Star;
 
-public class Planet extends Body implements Comparable<Planet>, Cloneable {
+public class Planet extends Body implements Comparable<Planet>, Cloneable, Observable {
 	private Star star;
 	private int planetIndex;
 	private PlanetType type;
@@ -142,5 +140,25 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 		Set<Moon> result = new HashSet<>();
 		result.addAll(moons);
 		return result;
+	}
+
+	@Override
+	public void registerObserver(Observer o) {
+
+	}
+
+	@Override
+	public void unregisterObserver(Observer o) {
+
+	}
+
+	@Override
+	public void notifyObservers() {
+
+	}
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
 }

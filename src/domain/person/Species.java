@@ -1,12 +1,14 @@
 package domain.person;
 
+import domain.Observable;
+import domain.Observer;
 import domain.planet.Climate;
 import domain.planet.Planet;
 import domain.planet.PlanetType;
 import domain.planet.TechnicalLevel;
 
 
-public class Species {
+public class Species implements Observable {
 	private String name;
 	private String description;
 	private Intelligence intelligence; // The common level of intelligence of a species. This does not preclude individuals having it lower or higher.
@@ -111,5 +113,25 @@ public class Species {
 
 	public void setPreferredClimate(Climate preferredClimate) {
 		this.preferredClimate = preferredClimate;
+	}
+
+	@Override
+	public void registerObserver(Observer o) {
+
+	}
+
+	@Override
+	public void unregisterObserver(Observer o) {
+
+	}
+
+	@Override
+	public void notifyObservers() {
+
+	}
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
 }

@@ -1,6 +1,9 @@
 package domain.person;
 
-public class Organization {
+import domain.Observable;
+import domain.Observer;
+
+public class Organization implements Observable, Observer{
 	private final long registrationNumber; 
 	private String name; 
 	private String description; 
@@ -54,5 +57,30 @@ public class Organization {
 
 	public long getRegistrationNumber() {
 		return registrationNumber;
+	}
+
+	@Override
+	public void registerObserver(Observer o) {
+
+	}
+
+	@Override
+	public void unregisterObserver(Observer o) {
+
+	}
+
+	@Override
+	public void notifyObservers() {
+
+	}
+
+	@Override
+	public String getIdentity() {
+		return null;
+	}
+
+	@Override
+	public void update() {
+
 	}
 }

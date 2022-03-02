@@ -5,12 +5,10 @@ import java.util.Random;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import domain.Body;
-import domain.Coordinate;
-import domain.Universe;
+import domain.*;
 import domain.planet.Planet;
 
-public class Star extends Body implements Comparable<Star>, Cloneable {
+public class Star extends Body implements Comparable<Star>, Cloneable, Observable {
 	private StarType type;
 	private int temperatureSequence;
 	private LuminosityClass luminosity;
@@ -245,5 +243,25 @@ public class Star extends Body implements Comparable<Star>, Cloneable {
 	
 	public static double calcDistanceToCiadan(Coordinate coordinate) {
 		return new Coordinate(10951.618d, 0.0447d, 0.0041d).calculateDistance(coordinate);
+	}
+
+	@Override
+	public void registerObserver(Observer o) {
+
+	}
+
+	@Override
+	public void unregisterObserver(Observer o) {
+
+	}
+
+	@Override
+	public void notifyObservers() {
+
+	}
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
 }

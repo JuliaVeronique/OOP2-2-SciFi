@@ -1,10 +1,12 @@
 package domain.person;
 
+import domain.Observer;
+
 import java.time.LocalDate;
 import java.util.Random;
 
 
-public class Person {
+public class Person implements Observer {
 	private final long ssn;
 	private String name;
 	private LocalDate dateOfBirth;
@@ -81,6 +83,11 @@ public class Person {
 
 	public void setSpecies(Species species) {
 		this.species = species;
+	}
+
+	@Override
+	public void update() {
+
 	}
 
 	public enum Gender { MALE("M", "Gender producing the smaller reproductive cell"), 

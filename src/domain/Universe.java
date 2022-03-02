@@ -7,7 +7,7 @@ import domain.star.Star;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Universe{
+public class Universe implements Observer{
     private static Universe instance = new Universe();
     private List<Body> bodies = new ArrayList<>();
     private List<Planet> planets = new ArrayList<>();
@@ -39,5 +39,10 @@ public class Universe{
         return "Universe{" +
                 "bodies=" + bodies + bodies.size() +
                 '}';
+    }
+
+    @Override
+    public void update() {
+
     }
 }

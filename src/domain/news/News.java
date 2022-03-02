@@ -1,8 +1,11 @@
 package domain.news;
 
+import domain.Observable;
+import domain.Observer;
+
 import java.time.LocalDateTime;
 
-public class News{
+public class News implements Observable {
 	private final Source source;
 	private final LocalDateTime datetime;
 	private String content;
@@ -28,5 +31,25 @@ public class News{
 
 	public LocalDateTime getDatetime() {
 		return datetime;
+	}
+
+	@Override
+	public void registerObserver(Observer o) {
+
+	}
+
+	@Override
+	public void unregisterObserver(Observer o) {
+
+	}
+
+	@Override
+	public void notifyObservers() {
+
+	}
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
 }
