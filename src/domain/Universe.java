@@ -7,11 +7,12 @@ import domain.star.Star;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Universe implements Observer{
+public class Universe implements Observer {
     private static Universe instance = new Universe();
     private List<Body> bodies = new ArrayList<>();
 
-    private Universe(){}
+    private Universe() {
+    }
 
     public static Universe getInstance() {
         return instance;
