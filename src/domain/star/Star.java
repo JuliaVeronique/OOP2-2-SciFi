@@ -8,7 +8,7 @@ import java.util.TreeSet;
 import domain.*;
 import domain.planet.Planet;
 
-public class Star extends Body implements Comparable<Star>, Cloneable, Observable {
+public class Star extends Body implements Comparable<Star>, Cloneable {
 	private StarType type;
 	private int temperatureSequence;
 	private LuminosityClass luminosity;
@@ -59,8 +59,8 @@ public class Star extends Body implements Comparable<Star>, Cloneable, Observabl
 		addBodyToUniverse();
 	}
 
-	private void addBodyToUniverse(){
-		Universe.getInstance().addStar(this);
+	public void addBodyToUniverse(){
+		Universe.getInstance().addBody(this);
 	}
 
 	public boolean addPlanet(Planet p) {
@@ -245,20 +245,6 @@ public class Star extends Body implements Comparable<Star>, Cloneable, Observabl
 		return new Coordinate(10951.618d, 0.0447d, 0.0041d).calculateDistance(coordinate);
 	}
 
-	@Override
-	public void registerObserver(Observer o) {
-
-	}
-
-	@Override
-	public void unregisterObserver(Observer o) {
-
-	}
-
-	@Override
-	public void notifyObservers() {
-
-	}
 
 	@Override
 	public String getIdentity() {

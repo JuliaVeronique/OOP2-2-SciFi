@@ -7,7 +7,7 @@ import domain.Observable;
 import domain.Observer;
 import domain.person.Organization;
 
-public class Source extends Organization implements Observable {
+public class Source extends Organization {
 	private SortedSet<News> news;
 
 	public Source(String name, String description, SortedSet<News> news) {
@@ -23,21 +23,6 @@ public class Source extends Organization implements Observable {
 		SortedSet<News> result = new TreeSet<>();
 		result.addAll(news);
 		return result;
-	}
-
-	@Override
-	public void registerObserver(Observer o) {
-
-	}
-
-	@Override
-	public void unregisterObserver(Observer o) {
-
-	}
-
-	@Override
-	public void notifyObservers() {
-
 	}
 
 	@Override

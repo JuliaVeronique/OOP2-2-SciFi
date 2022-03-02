@@ -5,7 +5,7 @@ import domain.Observer;
 
 import java.time.LocalDateTime;
 
-public class News implements Observable {
+public class News extends Observable {
 	private final Source source;
 	private final LocalDateTime datetime;
 	private String content;
@@ -33,20 +33,6 @@ public class News implements Observable {
 		return datetime;
 	}
 
-	@Override
-	public void registerObserver(Observer o) {
-
-	}
-
-	@Override
-	public void unregisterObserver(Observer o) {
-
-	}
-
-	@Override
-	public void notifyObservers() {
-
-	}
 
 	@Override
 	public String getIdentity() {

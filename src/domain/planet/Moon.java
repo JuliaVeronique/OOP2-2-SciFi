@@ -2,6 +2,7 @@ package domain.planet;
 
 import domain.Body;
 import domain.Coordinate;
+import domain.Observer;
 import domain.Universe;
 
 public class Moon extends Body {
@@ -15,8 +16,8 @@ public class Moon extends Body {
 		addBodyToUniverse();
 	}
 
-	private void addBodyToUniverse(){
-		Universe.getInstance().addMoon(this);
+	public void addBodyToUniverse(){
+		Universe.getInstance().addBody(this);
 	}
 
 	public String getName() {
@@ -38,5 +39,11 @@ public class Moon extends Body {
 	@Override
 	public Coordinate getCoordinate() {
 		return planet.getCoordinate();
+	}
+
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
 }

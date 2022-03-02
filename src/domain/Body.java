@@ -2,7 +2,7 @@ package domain;
 
 import java.math.BigInteger;
 
-public abstract class Body {
+public abstract class Body extends Observable{
 
 	private String designation;
 	private String name; 
@@ -11,12 +11,9 @@ public abstract class Body {
 	public Body(String designation, String name) {
 		this.designation = designation;
 		this.name = name;
-		addBodyToUniverse();
 	}
 
-	private void addBodyToUniverse(){
-		Universe.getInstance().addBody(this);
-	}
+	public abstract void addBodyToUniverse();
 
 	public String getName() {
 		return name;

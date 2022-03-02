@@ -3,7 +3,7 @@ package domain.person;
 import domain.Observable;
 import domain.Observer;
 
-public class Organization implements Observable, Observer{
+public class Organization extends Observable implements Observer{
 	private final long registrationNumber; 
 	private String name; 
 	private String description; 
@@ -59,20 +59,6 @@ public class Organization implements Observable, Observer{
 		return registrationNumber;
 	}
 
-	@Override
-	public void registerObserver(Observer o) {
-
-	}
-
-	@Override
-	public void unregisterObserver(Observer o) {
-
-	}
-
-	@Override
-	public void notifyObservers() {
-
-	}
 
 	@Override
 	public String getIdentity() {

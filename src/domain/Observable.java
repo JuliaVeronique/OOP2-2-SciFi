@@ -1,10 +1,27 @@
 package domain;
 
-public interface Observable
-{
-    public void registerObserver(Observer o);
-    public void unregisterObserver(Observer o);
-    public void notifyObservers();
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Observable {
+
+    private final List<Observer> observers = new ArrayList<>();
+
+    public void addObserver(Observer o) {
+        this.observers.add(o);
+    }
+
+    public void removeObserver(Observer o) {
+        this.observers.remove(o);
+    }
+
+    public void notifyObservers() {
+        this.notifyObservers(null);
+    }
+
+    public void notifyObservers(Object arg) {
+        this.observers.forEach(observer -> observer.update(this, arg));
+    }
 
     public abstract String getIdentity();
 

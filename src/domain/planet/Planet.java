@@ -6,7 +6,7 @@ import java.util.Set;
 import domain.*;
 import domain.star.Star;
 
-public class Planet extends Body implements Comparable<Planet>, Cloneable, Observable {
+public class Planet extends Body implements Comparable<Planet>, Cloneable {
 	private Star star;
 	private int planetIndex;
 	private PlanetType type;
@@ -27,8 +27,8 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable, Obser
 		addBodyToUniverse();
 	}
 
-	private void addBodyToUniverse(){
-		Universe.getInstance().addPlanet(this);
+	public void addBodyToUniverse(){
+		Universe.getInstance().addBody(this);
 	}
 
 
@@ -140,21 +140,6 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable, Obser
 		Set<Moon> result = new HashSet<>();
 		result.addAll(moons);
 		return result;
-	}
-
-	@Override
-	public void registerObserver(Observer o) {
-
-	}
-
-	@Override
-	public void unregisterObserver(Observer o) {
-
-	}
-
-	@Override
-	public void notifyObservers() {
-
 	}
 
 	@Override
