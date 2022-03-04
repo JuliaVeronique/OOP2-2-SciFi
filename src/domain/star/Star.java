@@ -112,6 +112,7 @@ public class Star extends Body implements Comparable<Star>, Cloneable {
 	public void setCoordinate(Coordinate coordinate) {
 		this.coordinate = coordinate;
 		this.distanceToCiadan = new Coordinate(21950f, 0.00d, 0.0d).calculateDistance(coordinate);
+		this.notifyObservers();
 	}
 
 	public Star getSister() {
@@ -120,6 +121,7 @@ public class Star extends Body implements Comparable<Star>, Cloneable {
 
 	public void setSister(Star sister) {
 		this.sister = sister;
+		this.notifyObservers();
 	}
 
 	public double getDistanceToCiadan() {
@@ -128,6 +130,7 @@ public class Star extends Body implements Comparable<Star>, Cloneable {
 
 	public void setDistanceToCiadan(double distanceToCiadan) {
 		this.distanceToCiadan = distanceToCiadan;
+		this.notifyObservers();
 	}
 
 	private void calculateGoldilockZone() {
@@ -248,6 +251,6 @@ public class Star extends Body implements Comparable<Star>, Cloneable {
 
 	@Override
 	public String getIdentity() {
-		return null;
+		return this.toString();
 	}
 }

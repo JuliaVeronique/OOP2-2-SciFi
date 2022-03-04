@@ -1,5 +1,6 @@
 package domain.person;
 
+import domain.Observable;
 import domain.Observer;
 
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ public class Person implements Observer {
 	private String description;
 	private Species species;
 	private Gender gender;
-	
+
 	public Person(String name, LocalDate dateOfBirth, String description, Species species) {
 		super();
 		Random r = new Random();
@@ -87,8 +88,14 @@ public class Person implements Observer {
 
 	@Override
 	public void update() {
-
+		System.out.println(this.species.getIdentity());
 	}
+
+	@Override
+	public void update(String arg) {
+		System.out.println(this.species.getIdentity());
+	}
+
 
 	public enum Gender { MALE("M", "Gender producing the smaller reproductive cell"), 
 		 				 FEMALE("F", "Gender producing the larger reproductive cell"), 

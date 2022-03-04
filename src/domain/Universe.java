@@ -10,6 +10,7 @@ import java.util.List;
 public class Universe implements Observer {
     private static Universe instance = new Universe();
     private List<Body> bodies = new ArrayList<>();
+    private Body body;
 
     private Universe() {
     }
@@ -31,7 +32,12 @@ public class Universe implements Observer {
 
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update() {
+        System.out.println(this.body.getIdentity());
+    }
 
+    @Override
+    public void update(String arg) {
+        System.out.println(arg + this.body.getIdentity());
     }
 }

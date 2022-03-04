@@ -27,6 +27,6 @@ public class Source extends Organization {
 
 	@Override
 	public String getIdentity() {
-		return null;
+		return this.getName();
 	}
 }

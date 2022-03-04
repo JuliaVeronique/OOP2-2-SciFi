@@ -65,6 +65,7 @@ public class Species extends Observable {
 
 	public void setName(String name) {
 		this.name = name;
+		this.notifyObservers();
 	}
 
 	public String getDescription() {
@@ -73,6 +74,8 @@ public class Species extends Observable {
 
 	public void setDescription(String description) {
 		this.description = description;
+		this.notifyObservers();
+
 	}
 	
 	public Planet getPlanetOfOrigin() {
@@ -81,6 +84,7 @@ public class Species extends Observable {
 
 	public void setPlanetOfOrigin(Planet planetOfOrigin) {
 		this.planetOfOrigin = planetOfOrigin;
+		this.notifyObservers();
 	}
 
 	public TechnicalLevel getTechnicalLevel() {
@@ -89,6 +93,7 @@ public class Species extends Observable {
 
 	public void setTechnicalLevel(TechnicalLevel technicalLevel) {
 		this.technicalLevel = technicalLevel;
+		this.notifyObservers();
 	}
 
 	public Intelligence getIntelligence() {
@@ -97,6 +102,7 @@ public class Species extends Observable {
 
 	public void setIntelligence(Intelligence intelligence) {
 		this.intelligence = intelligence;
+		this.notifyObservers();
 	}
 
 	public PlanetType getPreferredPlanetType() {
@@ -105,6 +111,7 @@ public class Species extends Observable {
 
 	public void setPreferredPlanetType(PlanetType preferredPlanetType) {
 		this.preferredPlanetType = preferredPlanetType;
+		this.notifyObservers();
 	}
 
 	public Climate getPreferredClimate() {
@@ -113,11 +120,11 @@ public class Species extends Observable {
 
 	public void setPreferredClimate(Climate preferredClimate) {
 		this.preferredClimate = preferredClimate;
+		this.notifyObservers();
 	}
-
 
 	@Override
 	public String getIdentity() {
-		return null;
+		return this.toString();
 	}
 }

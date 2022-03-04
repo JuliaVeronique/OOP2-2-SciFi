@@ -23,6 +23,7 @@ public class News extends Observable {
 
 	public void setContent(String content) {
 		this.content = content;
+		this.notifyObservers();
 	}
 
 	public Source getSource() {
@@ -33,9 +34,12 @@ public class News extends Observable {
 		return datetime;
 	}
 
-
 	@Override
 	public String getIdentity() {
-		return null;
+		return "News{" +
+				"source=" + source +
+				", datetime=" + datetime +
+				", content='" + content + '\'' +
+				'}';
 	}
 }

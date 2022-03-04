@@ -1,5 +1,7 @@
 package domain;
 
+import domain.star.Star;
+
 import java.math.BigInteger;
 
 public abstract class Body extends Observable{
@@ -21,6 +23,7 @@ public abstract class Body extends Observable{
 
 	public void setName(String name) {
 		this.name = name;
+		this.notifyObservers();
 	}
 
 	public String getDesignation() {
@@ -29,6 +32,7 @@ public abstract class Body extends Observable{
 
 	public void setDesignation(String designation) {
 		this.designation = designation;
+		this.notifyObservers();
 	}
 
 	@Override
@@ -59,12 +63,12 @@ public abstract class Body extends Observable{
 	public double calculateDistance(Body other) {
 		return this.getCoordinate().calculateDistance(other.getCoordinate());
 	}
-	
-	
-	public String getIdentitity() {
-		return getDesignation();
+
+	@Override
+	public String getIdentity() {
+		return null;
 	}
-	
+
 	public BigInteger getWeight() {
 		return weight;
 	}

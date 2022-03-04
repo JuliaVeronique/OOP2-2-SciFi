@@ -20,12 +20,14 @@ public class Moon extends Body {
 		Universe.getInstance().addBody(this);
 	}
 
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+		this.notifyObservers();
 	}
 
 	public Planet getPlanet() {
@@ -34,6 +36,7 @@ public class Moon extends Body {
 
 	public void setPlanet(Planet planet) {
 		this.planet = planet;
+		this.notifyObservers();
 	}
 
 	@Override
@@ -44,6 +47,6 @@ public class Moon extends Body {
 
 	@Override
 	public String getIdentity() {
-		return null;
+		return this.toString();
 	}
 }

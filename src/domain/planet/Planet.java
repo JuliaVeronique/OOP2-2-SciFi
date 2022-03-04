@@ -81,6 +81,7 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 
 	public void setType(PlanetType type) {
 		this.type = type;
+		this.notifyObservers();
 	}
 
 	public Star getStar() {
@@ -89,6 +90,8 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 
 	public void setStar(Star star) {
 		this.star = star;
+		this.notifyObservers();
+
 	}
 
 	public float getAverageDistanceToStar() {
@@ -144,6 +147,6 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 
 	@Override
 	public String getIdentity() {
-		return null;
+		return this.toString();
 	}
 }

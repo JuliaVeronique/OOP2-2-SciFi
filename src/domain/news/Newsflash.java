@@ -27,4 +27,10 @@ public class Newsflash extends News{
 		}
 	}
 
+
+
+	@Override
+	public String getIdentity() {
+		return this.getContent();
+	}
 }

@@ -15,12 +15,19 @@ public abstract class Observable {
         this.observers.remove(o);
     }
 
+    public void notifyObserver(Observer o, String arg) {
+        if (this.observers.contains(o)) o.update(arg);
+    }
+    public void notifyObserver(Observer o) {
+        if (this.observers.contains(o)) o.update();
+    }
+
     public void notifyObservers() {
         this.notifyObservers(null);
     }
 
-    public void notifyObservers(Object arg) {
-        this.observers.forEach(observer -> observer.update(this, arg));
+    public void notifyObservers(String arg) {
+        this.observers.forEach(observer -> observer.update(arg));
     }
 
     public abstract String getIdentity();
