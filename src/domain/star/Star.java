@@ -1,5 +1,6 @@
 package domain.star;
 
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.Random;
 import java.util.SortedSet;
@@ -252,5 +253,12 @@ public class Star extends Body implements Comparable<Star>, Cloneable {
 	@Override
 	public String getIdentity() {
 		return this.toString();
+	}
+
+	@Override
+	public BigInteger getMass() {
+		BigInteger totalMass = this.getWeight();
+		this.planets.forEach(planet -> totalMass.add(planet.getMass()));
+		return totalMass;
 	}
 }

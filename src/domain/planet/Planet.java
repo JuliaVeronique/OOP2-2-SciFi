@@ -1,5 +1,6 @@
 package domain.planet;
 
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -148,5 +149,12 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 	@Override
 	public String getIdentity() {
 		return this.toString();
+	}
+
+	@Override
+	public BigInteger getMass() {
+		BigInteger totalMass = this.getWeight();
+		this.moons.forEach(moon -> totalMass.add(moon.getMass()));
+		return totalMass;
 	}
 }

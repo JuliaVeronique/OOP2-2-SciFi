@@ -73,6 +73,8 @@ public abstract class Body extends Observable{
 		return weight;
 	}
 
+	public abstract BigInteger getMass();
+
 	public void setWeight(BigInteger weight) {
 		this.weight = weight;
 	}

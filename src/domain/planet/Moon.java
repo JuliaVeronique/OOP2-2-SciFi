@@ -5,6 +5,8 @@ import domain.Coordinate;
 import domain.Observer;
 import domain.Universe;
 
+import java.math.BigInteger;
+
 public class Moon extends Body {
 	private String name;
 	private Planet planet;
@@ -48,5 +50,10 @@ public class Moon extends Body {
 	@Override
 	public String getIdentity() {
 		return this.toString();
+	}
+
+	@Override
+	public BigInteger getMass() {
+		return this.getWeight();
 	}
 }
