@@ -14,6 +14,7 @@ public class Organization extends Observable implements Observer {
 		this.name = name;
 		this.description = description;
 		this.registrationNumber = (long) (Math.random() * Long.MAX_VALUE);
+		this.species.addObserver(this);
 	}
 
 	@Override

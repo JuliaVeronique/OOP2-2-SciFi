@@ -20,6 +20,8 @@ public class Universe implements Observer {
     }
 
     public void addBody(Body body) {
+        this.body = body;
+        body.addObserver(this);
         bodies.add(body);
     }
 

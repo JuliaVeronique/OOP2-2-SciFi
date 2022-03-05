@@ -24,6 +24,7 @@ public class Person implements Observer {
 		this.description = description;
 		this.species = species;
 		this.gender = randomGender();
+		this.species.addObserver(this);
 	}
 
 	private Gender randomGender() {

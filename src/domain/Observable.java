@@ -23,7 +23,7 @@ public abstract class Observable {
     }
 
     public void notifyObservers() {
-        this.notifyObservers(null);
+        this.notifyObservers("no message\n");
     }
 
     public void notifyObservers(String arg) {
