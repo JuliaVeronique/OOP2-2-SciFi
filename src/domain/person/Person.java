@@ -23,23 +23,52 @@ public class Person implements Observer {
 		this.dateOfBirth = dateOfBirth;
 		this.description = description;
 		this.species = species;
-		this.gender = randomGender();
+		this.gender = randomGender("");
 		this.species.addObserver(this);
 	}
 
-	private Gender randomGender() {
+	public Person(String name, LocalDate dateOfBirth, String description, Species species, String howRandom) {
+		super();
 		Random r = new Random();
-		if (r.nextInt(4) == 0) {
-			return Gender.MALE;
+		this.ssn = r.nextLong();
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.description = description;
+		this.species = species;
+		this.gender = randomGender(howRandom);
+
+		this.species.addObserver(this);
+	}
+
+	public Person(String name, LocalDate dateOfBirth, String description, String howRandom) {
+		super();
+		Random r = new Random();
+		this.ssn = r.nextLong();
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.description = description;
+		this.gender = randomGender(howRandom);
+
+		this.species.addObserver(this);
+	}
+
+/*
+	Implement the Strategy Design Pattern using one interface IGenderGenerator and three implementing classes.
+	The first class does not need a Species parameter, the other two do.
+	If no parameter is given just picking one of the three strategies at random with a random species is ok.
+	Or do whatever creative thing you can think of, if the user doesn't know how to handle this situation any solution should be fine with him.
+ */
+
+	public Gender randomGender(String howRandom){
+		if (this.species.equals(null)) {
+			if (howRandom.equals("tech")) return new GenderTechLevel().getGender();
+			else if (howRandom.equals("climate")) return new GenderClimate().getGender();
+			else return new RandomGender().getGender();
 		}
-		if (r.nextInt(3) == 1) {
-			return Gender.FEMALE;
-		}
-		if (r.nextInt(10) <= 8) {
-			return Gender.UNKNOWN;
-		}
-		else {
-			return Gender.OTHER;
+		else{
+			if (howRandom.equals("tech")) return new GenderTechLevel().getGender(this.species);
+			else if (howRandom.equals("climate")) return new GenderClimate().getGender(this.species);
+			else return new RandomGender().getGender();
 		}
 	}
 

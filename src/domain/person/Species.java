@@ -7,6 +7,11 @@ import domain.planet.Planet;
 import domain.planet.PlanetType;
 import domain.planet.TechnicalLevel;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static domain.planet.Climate.TROPICAL;
+
 
 public class Species extends Observable {
 	private String name;

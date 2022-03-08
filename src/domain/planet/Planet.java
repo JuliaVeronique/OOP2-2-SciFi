@@ -28,6 +28,10 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 		addBodyToUniverse();
 	}
 
+	public Planet() {
+		super("None", "none");
+	}
+
 	public void addBodyToUniverse(){
 		Universe.getInstance().addBody(this);
 	}
