@@ -1,6 +1,6 @@
 package domain.person;
 
 public interface IGenderGenerator {
-    Person.Gender getGender(Species species);
-    Person.Gender getGender();
+    Gender getGender(Species species);
+    Gender getGender();
 }

@@ -1,6 +1,5 @@
 package domain.person;
 
-import domain.Observable;
 import domain.Observer;
 
 import java.time.LocalDate;
@@ -23,31 +22,18 @@ public class Person implements Observer {
 		this.dateOfBirth = dateOfBirth;
 		this.description = description;
 		this.species = species;
-		this.gender = randomGender("");
+		this.gender = randomGender(this.howRandom());
 		this.species.addObserver(this);
 	}
 
-	public Person(String name, LocalDate dateOfBirth, String description, Species species, String howRandom) {
+	public Person(String name, LocalDate dateOfBirth, String description) {
 		super();
 		Random r = new Random();
 		this.ssn = r.nextLong();
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 		this.description = description;
-		this.species = species;
-		this.gender = randomGender(howRandom);
-
-		this.species.addObserver(this);
-	}
-
-	public Person(String name, LocalDate dateOfBirth, String description, String howRandom) {
-		super();
-		Random r = new Random();
-		this.ssn = r.nextLong();
-		this.name = name;
-		this.dateOfBirth = dateOfBirth;
-		this.description = description;
-		this.gender = randomGender(howRandom);
+		this.gender = randomGender(this.howRandom());
 
 		this.species.addObserver(this);
 	}
@@ -69,6 +55,18 @@ public class Person implements Observer {
 			else if (howRandom.equals("climate")) return new GenderClimate().getGender();
 			else return new RandomGender().getGender();
 		}
+	}
+
+	public String howRandom(){
+		if (this.dateOfBirth.equals(null)){
+			Random r = new Random();
+			LocalDate dateOfBirth = LocalDate.of(r.nextInt(1930,2022),r.nextInt(1,13),r.nextInt(1,32));
+			this.dateOfBirth = dateOfBirth;
+		}
+		if (this.dateOfBirth.isLeapYear()) {
+			return "tech";
+		}
+		return "climate";
 	}
 
 	public String getName() {
@@ -125,42 +123,5 @@ public class Person implements Observer {
 		System.out.println(this.species.getIdentity());
 	}
 
-
-	public enum Gender { MALE("M", "Gender producing the smaller reproductive cell"), 
-		 				 FEMALE("F", "Gender producing the larger reproductive cell"), 
-		 				 OTHER("O", "Catch-all for situations where the reproductive structure is unclear"), 
-		 				 UNKNOWN("U", "We have'nt got the foggiest");
-		private String abbreviation;
-		private String description;
-		
-		private Gender(String abbreviation, String description) {
-			this.abbreviation = abbreviation;
-			this.description = description;
-		}
-		
-		public String getDescription() {
-			return description;
-		}
-		
-		public String getAbbreviation() {
-			return abbreviation;
-		}
-		
-		public static Gender parse(String description) {
-			if (description.toUpperCase().equals("M")) {
-				return Gender.MALE;
-			}
-			if (description.toUpperCase().equals("F")) {
-				return Gender.FEMALE;
-			}
-			if (description.toUpperCase().equals("O")) {
-				return Gender.OTHER;
-			}
-			if (description.toUpperCase().equals("U")) {
-				return Gender.UNKNOWN;
-			}
-			return null;
-		}
-	}
 }
 
