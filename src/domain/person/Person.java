@@ -60,14 +60,13 @@ public class Person implements Observer {
  */
 
 	public Gender randomGender(String howRandom){
-		if (this.species.equals(null)) {
-			if (howRandom.equals("tech")) return new GenderTechLevel().getGender();
-			else if (howRandom.equals("climate")) return new GenderClimate().getGender();
-			else return new RandomGender().getGender();
-		}
-		else{
+		try{
 			if (howRandom.equals("tech")) return new GenderTechLevel().getGender(this.species);
 			else if (howRandom.equals("climate")) return new GenderClimate().getGender(this.species);
+			else return new RandomGender().getGender();
+		} catch (Exception e) {
+			if (howRandom.equals("tech")) return new GenderTechLevel().getGender();
+			else if (howRandom.equals("climate")) return new GenderClimate().getGender();
 			else return new RandomGender().getGender();
 		}
 	}
