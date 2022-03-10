@@ -1,13 +1,15 @@
 package domain.star;
 
+import domain.Body;
+import domain.Coordinate;
+import domain.Universe;
+import domain.planet.Planet;
+
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Random;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
-import domain.*;
-import domain.planet.Planet;
 
 public class Star extends Body implements Comparable<Star>, Cloneable {
 	private StarType type;

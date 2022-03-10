@@ -10,17 +10,15 @@ import java.util.Random;
 //3.	Based on the TechnicalLevel of the species. If that is the highest from the list, the gender always is OTHER.
 //    The next two levels (counting from the highest) have a random distribution of 20% other, 20% unknown, 30% male, 30% female.
 //    The rest have 10% of other, 10% unknown, 40% male, 40% female.
-public class GenderTechLevel implements IGenderGenerator{
+public class GenderTechLevel implements IGenderGenerator {
     @Override
     public Gender getGender(Species species) {
-//        NONE, STONE, BRONZE, IRON, RENAISSANCE, INDUSTRIAL, ELECTRIFIED, COMPUTERIZED, SPACEFARING, GATEUSER, FASTERTHANLIGHT, MOREADVANCED
-
-        switch (species.getTechnicalLevel()){
+        switch (species.getTechnicalLevel()) {
             case MOREADVANCED:
                 return Gender.OTHER;
             case FASTERTHANLIGHT:
             case GATEUSER:
-                switch (new Random().nextInt(10)){
+                switch (new Random().nextInt(10)) {
                     case 0:
                     case 1:
                         return Gender.OTHER;
@@ -59,6 +57,6 @@ public class GenderTechLevel implements IGenderGenerator{
 
     @Override
     public Gender getGender() {
-        return getGender(new Species("name", "desc", Intelligence.COMMON, TechnicalLevel.NONE, PlanetType.D, Climate.TROPICAL, new Planet())) ;
+        return getGender(new Species("name", "desc", Intelligence.COMMON, TechnicalLevel.NONE, PlanetType.D, Climate.TROPICAL, new Planet()));
     }
 }

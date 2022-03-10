@@ -1,11 +1,13 @@
 package domain.planet;
 
+import domain.Body;
+import domain.Coordinate;
+import domain.Universe;
+import domain.star.Star;
+
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
-
-import domain.*;
-import domain.star.Star;
 
 public class Planet extends Body implements Comparable<Planet>, Cloneable {
 	private Star star;
@@ -15,8 +17,8 @@ public class Planet extends Body implements Comparable<Planet>, Cloneable {
 	private float tilt = 0; // degrees relative to the plane of the star system
 	private float excentricity; // in degrees
 	private Set<Moon> moons;
-	
-	public Planet(String designation, String name, PlanetType type, Star star, int planetIndex, float averageDistanceToStar, float tilt,float excentricity) {
+
+	public Planet(String designation, String name, PlanetType type, Star star, int planetIndex, float averageDistanceToStar, float tilt, float excentricity) {
 		super(designation, name);
 		this.planetIndex = planetIndex;
 		this.type = type;

@@ -2,58 +2,57 @@ package domain.planet;
 
 import domain.Body;
 import domain.Coordinate;
-import domain.Observer;
 import domain.Universe;
 
 import java.math.BigInteger;
 
 public class Moon extends Body {
-	private String name;
-	private Planet planet;
-	
-	public Moon(String designation, String name, String name2, Planet planet) {
-		super(designation, name);
-		name = name2;
-		this.planet = planet;
-		addBodyToUniverse();
-	}
+    private String name;
+    private Planet planet;
 
-	public void addBodyToUniverse(){
-		Universe.getInstance().addBody(this);
-	}
+    public Moon(String designation, String name, String name2, Planet planet) {
+        super(designation, name);
+        name = name2;
+        this.planet = planet;
+        addBodyToUniverse();
+    }
 
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		this.notifyObservers();
-	}
-
-	public Planet getPlanet() {
-		return planet.clone();
-	}
-
-	public void setPlanet(Planet planet) {
-		this.planet = planet;
-		this.notifyObservers();
-	}
-
-	@Override
-	public Coordinate getCoordinate() {
-		return planet.getCoordinate();
-	}
+    public void addBodyToUniverse() {
+        Universe.getInstance().addBody(this);
+    }
 
 
-	@Override
-	public String getIdentity() {
-		return this.toString();
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public BigInteger getMass() {
-		return this.getWeight();
-	}
+    public void setName(String name) {
+        this.name = name;
+        this.notifyObservers();
+    }
+
+    public Planet getPlanet() {
+        return planet.clone();
+    }
+
+    public void setPlanet(Planet planet) {
+        this.planet = planet;
+        this.notifyObservers();
+    }
+
+    @Override
+    public Coordinate getCoordinate() {
+        return planet.getCoordinate();
+    }
+
+
+    @Override
+    public String getIdentity() {
+        return this.toString();
+    }
+
+    @Override
+    public BigInteger getMass() {
+        return this.getWeight();
+    }
 }

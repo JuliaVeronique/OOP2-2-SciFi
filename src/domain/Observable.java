@@ -18,6 +18,7 @@ public abstract class Observable {
     public void notifyObserver(Observer o, String arg) {
         if (this.observers.contains(o)) o.update(arg);
     }
+
     public void notifyObserver(Observer o) {
         if (this.observers.contains(o)) o.update();
     }

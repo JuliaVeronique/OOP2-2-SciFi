@@ -1,9 +1,5 @@
 package domain;
 
-import domain.planet.Moon;
-import domain.planet.Planet;
-import domain.star.Star;
-
 import java.util.ArrayList;
 import java.util.List;
 
