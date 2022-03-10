@@ -16,17 +16,6 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-//		Write code in a main method to create a bunch of
-//			bodies (with their subclasses!)
-//			organizations
-//			sources
-//			persons
-//		Have persons observe organizations, sources and bodies.
-//		Add all of this to the universe.
-//		Universe observes the bodies and the organisations.
-//		Add news and newsflashes to a source and have the observers show they noted.
-//		Change attributes in bodies and let the universe show.
-//		Include changing the mass of a moon or planet.
 
         List<Star> stars = new ArrayList<>();
         Random r = new Random();
@@ -48,7 +37,6 @@ public class Application {
         for (int i = 0; i < 3; i++) {
             Organization organization = new Organization("name organisation", "description");
             Source source = new Source("name source", "desc");
-//            Person person = new Person("Jan", new Species("aight", "desc", Intelligence.COMMON, TechnicalLevel.MOREADVANCED, PlanetType.M, Climate.CHEMICAL, planets.get(i)));
             Person person = new Person("Jan");
         }
     }
